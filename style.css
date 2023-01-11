@@ -7,10 +7,12 @@
   --color-pink: #fe918d;
   --color-dark-blue: #8175f2;
   --color-black: #4d4d4d;
+  --color-light-black: #36373c;
   --color-dark-gray: #4d4d4d;
   --color-gray: #616161;
   --color-light-gray: #7c7979;
   --color-purple: #d1acf9;
+  --color-dark-purple: #8c7cf3;
   --color-yellow: #fff7d1;
   --color-orange: #feb546;
   --color-black: #000000;
@@ -93,12 +95,21 @@ p {
 
 /* Navbar */
 #navbar {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-purple);
+  background-color: transparent;
   align-items: center;
   color: var(--color-white);
   padding: 16px;
+  z-index: 1;
+  transition: all var(--animation-duration) ease-in-out;
+}
+
+#navbar.navbar--dark {
+  background-color: var(--color-light-black);
+  padding: 8px;
 }
 
 .navbar__menu {
@@ -132,7 +143,8 @@ p {
 
 .navbar__menu__item.active,
 .navbar__menu__item:hover {
-  background-color: var(--color-dark-blue);
+  border: 1px solid var(--color-white);
+  background-color: var(--color-black);
 }
 
 .navbar__toggle-btn {
@@ -146,8 +158,11 @@ p {
 
 /* Home */
 #home {
-  background: linear-gradient(var(--color-purple), var(--color-dark-blue));
+  background-image: url(imgs/home.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 40px;
+  padding-top: 120px;
   text-align: center;
 }
 
@@ -462,7 +477,7 @@ p {
 
 /* Contact */
 #contact {
-  background: linear-gradient(var(--color-purple), var(--color-dark-blue));
+  background: linear-gradient(var(--color-light-black), var(--color-black));
 }
 
 .contact__title,
