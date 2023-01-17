@@ -52,22 +52,26 @@ arrowUp.addEventListener("click", () => {
   scrollIntoViews("#home");
 });
 
-const workCategories = document.querySelector(".work__categories");
-const workProjects = document.querySelectorAll(".project");
-workCategories.addEventListener("click", (event) => {
-  const target = event.target;
-  const link = target.dataset.link;
-  if (link == null) {
+// Projects
+const workBtnContainer = document.querySelector(".work__categories");
+const projectContainer = document.querySelector(".work__projects");
+const projects = document.querySelectorAll(".project");
+workBtnContainer.addEventListener("click", (e) => {
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  if (filter == null) {
     return;
   }
-
-  workProjects.forEach((project) => {
-    if (project.dataset.link === link) {
-      project.style.display = "flex";
-    } else {
-      project.style.display = "none";
-    }
-  });
+  projectContainer.classList.add("anim-out");
+  setTimeout(() => {
+    projects.forEach((project) => {
+      if (filter === "*" || filter === project.dataset.type) {
+        project.classList.remove("invisible");
+      } else {
+        project.classList.add("invisible");
+      }
+    });
+    projectContainer.classList.remove("anim-out");
+  }, 300);
 });
 
 function scrollIntoViews(selector) {
