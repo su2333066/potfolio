@@ -44,7 +44,6 @@
 body {
   font-family: "Open Sans", sans-serif;
   margin: 0;
-  cursor: default;
 }
 
 a {
@@ -53,8 +52,11 @@ a {
 }
 
 ul {
-  list-style: none;
   padding-left: 0;
+}
+
+li {
+  list-style: none;
 }
 
 button {
@@ -70,7 +72,7 @@ h1 {
   font-size: var(--font-large);
   font-weight: var(--weight-bold);
   color: var(--color-black);
-  margin: 16px 0;
+  margin: 16px 0px;
 }
 
 h2 {
@@ -82,14 +84,14 @@ h2 {
 
 h3 {
   font-size: var(--font-regular);
-  font-weight: var(--weight-regular);
+  font-weight: var(--font-regular);
   color: var(--color-black);
   margin: 8px 0;
 }
 
 p {
   font-size: var(--font-regular);
-  font-weight: var(--weight-regular);
+  font-weight: var(--font-regular);
   color: var(--color-black);
   margin: 4px 0;
 }
@@ -105,7 +107,6 @@ p {
   background-color: transparent;
   transition: all var(--animation-duration) ease-in-out;
   z-index: 1;
-  color: var(--color-white);
 }
 
 #navbar.navbar--dark {
@@ -117,22 +118,28 @@ p {
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
   color: white;
+  margin: 0px 16px;
 }
 
 .navbar__menu {
   display: flex;
+  margin: 0px 4px;
 }
 
 .navbar__menu__item {
   padding: 8px 12px;
-  margin: 0 4px;
+  margin: 0px 4px;
+  color: var(--color-white);
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: var(--size-border-radius);
 }
 
+.navbar__menu__item.active {
+  border: 1px solid var(--color-white);
+}
+
 .navbar__menu__item:hover {
-  border-color: var(--color-white);
   background-color: var(--color-black);
 }
 
@@ -541,8 +548,8 @@ p {
 
   .navbar__toggle-btn {
     display: block;
-    top: 16px;
-    right: 16px;
+    top: 20px;
+    right: 20px;
     font-size: var(--font-medium);
   }
 
@@ -556,9 +563,14 @@ p {
     padding: 16px;
   }
 
+  .navbar__logo {
+    margin: 0px 8px;
+  }
+
   .navbar__menu {
     flex-direction: column;
     text-align: center;
+    margin: 16px 0px;
     width: 100%;
     display: none;
   }
